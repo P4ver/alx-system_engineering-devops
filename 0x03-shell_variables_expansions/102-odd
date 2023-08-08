@@ -1,2 +1,2 @@
 #!/bin/bash
-awk '!(NR%2)' 102-odd
+paste -d, - - | cut -d, -fl
