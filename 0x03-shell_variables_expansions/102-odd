@@ -1,2 +1,2 @@
 #!/bin/bash
-perl -lne '$.%2 or print;' 102-odd
+awk '!(NR%2)' 102-odd
