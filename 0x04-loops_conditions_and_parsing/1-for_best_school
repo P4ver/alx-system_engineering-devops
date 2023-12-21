@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# write script that prints a srt x10
+strpvr="Best School"
+for ((q = 0; q < 10; q++))
+do
+	echo "$strpvr"
+done
