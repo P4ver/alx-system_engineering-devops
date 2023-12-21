@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# iterate str x10 using until,
+pvrstr="Best School"
+q=0
+until [ $q -ge 10 ]
+do
+	echo "$pvrstr"
+	((q++))
+done
