@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#using for loop to display fils,
+for q in *
+do
+	if [[ ! "$q" =~ ^\. ]]
+	then
+		fl_nm=$(echo "$q" | cut -d'-' -f2-)
+		echo "$fl_nm"
+	fi
+done
