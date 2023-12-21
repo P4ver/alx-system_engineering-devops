@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# script gives you info about a file using if else.
+flnm="school"
+if [ -e "$flnm" ]
+then
+	echo "$flnm file exists"
+	if [ -s "$flnm" ]
+	then
+		echo "$flnm file is not empty"
+	else
+		echo "$flnm file is empty"
+	fi
+	if [ -f "$flnm" ]
+	then
+		echo "$flnm is a regular file"
+	fi
+else
+	echo "$flnm file does not exist"
+fi
