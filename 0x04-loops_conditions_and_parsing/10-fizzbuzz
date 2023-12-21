@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#script displays nmbrs from 1 to 100.
+for ((q = 1; q <= 100; q++))
+do
+	if [ "$((q % 3))" -eq 0 ] && [ "$((q % 5))" -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ "$((q % 3))" -eq 0 ]
+	then
+		echo "Fizz"
+	elif [ "$((q % 5))" -eq 0 ]
+	then
+		echo "Buzz"
+	else
+		echo "$q"
+	fi
+done
