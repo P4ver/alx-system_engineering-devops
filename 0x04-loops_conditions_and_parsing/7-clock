@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#time scripts 12h and 59min using while
+q=0
+while((q <= 12))
+do
+	echo "Hour: $q"
+	p=1
+	while((p < 60))
+	do
+		echo "$p"
+		((p++))
+	done
+	((q++))
+done
