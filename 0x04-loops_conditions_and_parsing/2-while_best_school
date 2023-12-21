@@ -2,7 +2,7 @@
 #iterate str x10 using while
 strpvr="Best School"
 q=0
-while (($q < 10))
+while ((q < 10))
 do
 	echo "$strpvr"
 	((q++))
