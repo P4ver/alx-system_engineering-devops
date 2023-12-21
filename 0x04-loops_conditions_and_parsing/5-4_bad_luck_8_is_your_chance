@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#iterate x10 using if elif else and while
+pvrstr="Best School"
+q=1
+while ((q <= 10))
+do
+	if [ $q -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ $q -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "$pvrstr"
+	fi
+	((q++))
+done
