@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#iterate x10 and print hi using while and if
+pvrstr="Best School"
+q=1
+while((q <= 10 ))
+do
+	echo "$pvrstr"
+	if [ $q -eq 9 ]
+	then
+		echo "Hi"
+	fi
+	((q++))
+done
