@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
-#Bash script displays PID, process name, of processes whose name contain the word bash.
-pidnp=$(pgrep -f bash)
-echo "$pidnp" | tail -n 2 | while read -r p
-do
-	echo "$p bash"
-done
+#Bsh script displays PID, process name, of processes whose name cntain 'bash',
+pgrep -f bash
