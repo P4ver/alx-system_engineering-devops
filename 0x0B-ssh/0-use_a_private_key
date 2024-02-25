@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script to establish an SSH connection to the server using the private key
+# located at ~/.ssh/school, auth as the user ubuntu.
+ssh -i ~/.ssh/school ubuntu@8.8.8.8
