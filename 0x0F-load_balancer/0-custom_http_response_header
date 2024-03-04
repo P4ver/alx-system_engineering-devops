@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
+
+echo "Updating package repositories..."
 sudo apt-get update
+echo "Installing Nginx..."
 sudo apt-get -y install nginx
+echo "Starting Nginx service..."
 sudo service nginx start
+echo "Configuring Nginx..."
 sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
-sudo sh -c 'echo "Hello World!" > /usr/share/nginx/html/index.html'
+echo "Creating index.html..."
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html > /dev/null
+echo "Restarting Nginx service..."
 sudo service nginx restart
+echo "Server configuration completed."
