@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Sets up Nginx server to use a custom configue on port 80.
+
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
