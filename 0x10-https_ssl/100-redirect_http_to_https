@@ -41,7 +41,7 @@ frontend pavirino-frontend
         default_backend pavirino-backend
 
 frontend pavirino-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/pavirino.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.pavirino.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend pavirino-backend
 
