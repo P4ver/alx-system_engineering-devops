@@ -1,38 +1,30 @@
 #!/usr/bin/python3
-'''module contains function to query subscribers,'''
+"""
+Queries the Reddit API and returns the number of
+subscribers for a given subreddit.
+"""
+
 import requests
 
 
 def number_of_subscribers(subreddit):
-    '''Return the number of subscribers for a given subreddit.'''
-    # Set a custom User-Agent to avoid 429 (Too Many Requests) errors
-    user_agent = {'User-Agent': 'Custom User Agent'}
-
-    # Construct the URL for the subreddit's about.json
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-
-    # Make the request to the Reddit API
-    response = requests.get(url, headers=user_agent)
-
-    # Check if the response is successful
+    """
+    Returns the number of subscribers for a given subreddit.
+    Args:
+        subreddit (str): The name of the subreddit.
+    Returns:
+        int: The number of subscribers for the subreddit.
+        Returns 0 if the subreddit is invalid.
+    """
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {"User-Agent": "Custom User Agent"}
+    response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        try:
-            # Extract the number of subscribers from the JSON response
-            data = response.json()
-            subscribers = data['data']['subscribers']
-            return subscribers
-        except KeyError:
-            # If the 'subscribers' key is not found in the response, return 0
-            return 0
-    elif response.status_code == 404:
-        # If the subreddit does not exist, return 0
-        return 0
+        data = response.json()
+        return data['data']['subscribers']
     else:
-        # If there is any other issue with the request, return 0
         return 0
 
 
-# Example usage:
 if __name__ == '__main__':
-    subreddit = input("Enter a subreddit: ")
-    print(number_of_subscribers(subreddit))
+    number_of_subscribers = number_of_subscribers(sys.argv[1])
