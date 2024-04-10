@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-'''module contains function to query subscribers,'''
+"""Function to query """
 import requests
-from sys import argv
 
 
 def number_of_subscribers(subreddit):
-    '''Return the num of subscribers,'''
-    user = {'User-Agent': 'Chrome/98.0.4758.102'}
-    resp = requests.get('https://www.reddit.com/r/{}/about.json'
-                        .format(subreddit), headers=user).json()
-    try:
-        res = resp.get('data')
-        return res.get('subscribers')
-    except Exception:
+    """Return the total """
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    resp = requests.get(url, headers=headers, allow_redirects=False)
+    if resp.status_code == 404:
         return 0
-
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])
+    results = resp.json().get("data")
+    return results.get("subscribers")
