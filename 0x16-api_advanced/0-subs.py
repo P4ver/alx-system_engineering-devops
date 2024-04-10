@@ -1,22 +1,24 @@
 #!/usr/bin/python3
 '''module contains function to query subscribers,'''
 import requests
-from sys import argv
 
 
 def number_of_subscribers(subreddit):
-    '''Return the num of subscribers,'''
-    user = {'User-Agent': 'Chrome/98.0.4758.102'}
-    resp = requests.get('https://www.reddit.com/r/{}/about.json'
-                        .format(subreddit), headers=user).json()
-    try:
-        res = resp.get('data')
-        return res.get('subscribers')
-    except Exception:
+    '''Return the number of subscribers for a given subreddit.'''
+    user_agent = {'User-Agent': 'Custom User Agent'}
+
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+
+    response = requests.get(url, headers=user_agent)
+
+    if response.status_code == 200:
+        data = response.json()
+        subscribers = data['data']['subscribers']
+        return subscribers
+    else:
         return 0
 
 
-if __name__ == "__main__":
-    subreddit = argv[1]
-    subscribers = number_of_subscribers(subreddit)
-    print("Number of subscribers in '{}' subreddit: {}".format(subreddit, subscribers))
+if __name__ == '__main__':
+    subreddit = input("Enter a subreddit: ")
+    print(number_of_subscribers(subreddit))
