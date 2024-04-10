@@ -17,4 +17,6 @@ def number_of_subscribers(subreddit):
 
 
 if __name__ == "__main__":
-    number_of_subscribers(argv[1])
+    subreddit = argv[1]
+    subscribers = number_of_subscribers(subreddit)
+    print("Number of subscribers in '{}' subreddit: {}".format(subreddit, subscribers))
