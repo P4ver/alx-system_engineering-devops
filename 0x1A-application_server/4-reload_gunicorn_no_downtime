@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
+# Snd HUP signal to run Gunicorn processes,
 
-# Snd HUP signal to running Gunicorn processes
 pgrep gunicorn | xargs kill -HUP
